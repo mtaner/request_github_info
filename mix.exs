@@ -19,7 +19,7 @@ defmodule RequestGithubInfo.Mixfile do
   def application do
     [mod: {RequestGithubInfo, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :httpoison]]
+                    :phoenix_ecto, :postgrex, :httpoison, :bamboo, :bamboo_smtp]]
   end
 
   # Specifies which paths to compile per environment.
@@ -38,7 +38,9 @@ defmodule RequestGithubInfo.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
-     {:httpoison, "~> 0.9.0"}]
+     {:httpoison, "~> 0.9.0"},
+	   {:bamboo, "~> 0.5"},
+	   {:bamboo_smtp, "~> 1.2.1"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

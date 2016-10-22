@@ -22,6 +22,18 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+config :request_github_info, RequestGithubInfo.Mailer,
+  adapter: Bamboo.SMTPAdapter,
+  server: "smtp.gmail.com",
+  port: 465,
+  username: System.get_env("ENV_VAR_EMAIL"),
+  password: System.get_env("ENV_VAR_PASSWORD"),
+  tls: :if_available, # can be `:always` or `:never`
+  ssl: true, # can be `true`
+  retries: 5
+
+
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
